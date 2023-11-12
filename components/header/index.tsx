@@ -5,6 +5,7 @@ import { cartIcon as CartIcon } from '@/public/icons/cartIcon';
 import { authIcon as AuthIcon } from '@/public/icons/authIcon';
 import { dropDown as DropDown } from './dropDown';
 import { attribute as Attribute } from './attribute';
+import Link from 'next/link';
 
 const getCategories = async () => {
     const categories = await axios.get(`${process.env.URL}/api/categories`);
@@ -19,9 +20,9 @@ const header = async () => {
     }
     return (
         <header className='py-5 font-medium px-3 flex items-center justify-between'>
-            <div className="min-h-[80px] ">
+            <Link href={'/'} className="min-h-[80px] ">
                 <img src='/images/logo.png' alt="kidzmarty logo" />
-            </div>
+            </Link>
             <nav className='hidden mx-2 h-full max-w-sm w-full sm:flex justify-between relative text-gray-900 items-center text-lg'>
                 <Attribute link='/' text='Home' />
                 <Attribute link='/aboutus' text='About Us' />

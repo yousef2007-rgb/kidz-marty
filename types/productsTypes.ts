@@ -5,6 +5,7 @@ export interface Varient {
     discription_ar: string;
     imageUrl: string;
     imagesUrls: string[];
+    _id: string;
 }
 
 export interface Category {
@@ -68,8 +69,8 @@ export interface Product {
     wholesale_price: number;
     discount: number;
     imageUrl: string;
-    category: string | Category;
-    brand: string | Brand;
+    category: Category;
+    brand: Brand;
     isPublished: boolean;
     isInStock: boolean;
     ageRange: "0-2" | "2-6" | "7-12" | "13-up";
