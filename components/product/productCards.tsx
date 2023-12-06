@@ -13,15 +13,16 @@ export const productCards: FC<Props> = ({ product, index }) => {
             <div className='h-[200px] bg-white w-full rounded-md flex justify-center items-center rounded-md'>
                 <img loading='lazy' className=" rounded-md h-fit max-h-[200px] object-contain" src={`${process.env.URL}/${product.imageUrl}`} alt={product.title}/>
             </div>
-            <h2 className='my-2 font-medium text-lg'>{product.title}</h2>
+            <h2 className='my-2  font-bold text-lg'>{product.title}</h2>
             <h3
+            className='font-semibold'
                 style={product.discount != 0 ? {
                     textDecoration: "line-through",
                     color: "gray"
                 } : {}}>
                 {product.online_price}JOD
             </h3>
-            {product.discount != 0 ? <h4>{product.online_price - (product.online_price * product.discount / 100)}JOD</h4> : ""}
+            {product.discount != 0 ? <h4 className='font-semibold'>{product.online_price - (product.online_price * product.discount / 100)}JOD</h4> : ""}
         </Link>
     )
 }

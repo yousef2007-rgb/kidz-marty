@@ -32,9 +32,12 @@ export interface Brand {
 
 export interface Item {
     product_id: string;
-    imageUrl?: string;
+    imageUrl: string;
     title: string;
     price: number;
+}
+
+export interface ItemWithQuantity extends Item{
     quantity: number;
 }
 
@@ -57,7 +60,7 @@ export interface Order {
 }
 
 export interface Product {
-    _id?: string;
+    _id: string;
     title: string;
     discription: string;
     lable: string;

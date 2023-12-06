@@ -16,7 +16,7 @@ export const body = async (props: {}) => {
             <div>
                 {products.map((productGroup: { category: Category, products: Product[] }, index: number) => (
                     <div className='flex flex-col my-5'>
-                        <h1 className='text-3xl font-normal text-gray-800 mx-auto w-fit my-10 text-center'>{productGroup.category.title}</h1>
+                        <h1 className='text-3xl font-bold text-gray-800 mx-auto w-fit my-10 text-center'>{productGroup.category.title}</h1>
                         <div className='flex justify-evenly flex-wrap'>
                             {productGroup.products.map((product: Product, index: number) => (
                                 <ProductCard index={index} product={product} />

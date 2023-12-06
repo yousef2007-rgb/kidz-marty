@@ -1,6 +1,6 @@
 "use client"
 import { Product, Varient } from '@/types/productsTypes'
-import React, { FC, useState } from 'react'
+import React, { FC, useEffect, useState } from 'react'
 
 interface Props {
     productData: Product;
@@ -8,6 +8,7 @@ interface Props {
 }
 
 export const imageSlider: FC<Props> = ({ productData, varient }) => {
+    useEffect(() => setCurrentImage(varient ? varient?.imageUrl : productData.imageUrl), [varient, productData])
     const [currentImage, setCurrentImage] = useState<string>
         (varient ? varient?.imageUrl : productData.imageUrl);
     return (
