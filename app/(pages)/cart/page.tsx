@@ -67,7 +67,7 @@ const page = (props: {}) => {
             {cartItems.map((product: ItemWithQuantity, index: number) => (
               <div
                 key={index}
-                className="p-4 flex flex-col bg-white rounded-lg shadow-sm"
+                className="p-4 flex flex-col bg-white rounded-lg shadow-lg"
               >
                 <img
                   src={`${process.env.URL}/${product.imageUrl}`}

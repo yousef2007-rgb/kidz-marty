@@ -8,6 +8,7 @@ const getUserData = async (token: string) => {
   const res = await axios.get(`${process.env.URL}/api/users/me`, {
     headers: {
       "x-web-token": token,
+      "Cache-Control": "no-cache",
     },
   });
 
@@ -25,13 +26,13 @@ async function UserPage() {
   }
 
   return (
-    <div className="flex flex-col items-center justify-center h-fit">
+    <div className="flex flex-col items-center px-5 justify-center h-fit">
       <h1 className="text-2xl font-bold mb-4">User Profile</h1>
-      <div className="flex flex-col w-full bg-white text-lg font-semibold rounded-md p-5 shadow-md max-w-xl">
-        <div className="mb-4">
+      <div className="flex flex-col w-full bg-gray-100 text-lg font-semibold rounded-md p-5 shadow-md max-w-xl">
+        <div className="mb-4 capitalize">
           <label htmlFor="username" className="text-lg font-semibold">
             Username:
-          </label>
+          </label>{" "}
           {data.username}
         </div>
         <div className="mb-4">

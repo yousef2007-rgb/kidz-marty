@@ -1,5 +1,5 @@
 "use client";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
 import { useCookies } from "next-client-cookies";
 import Link from "next/link";
@@ -12,6 +12,13 @@ const page = (props: {}) => {
   const [error, setError] = useState<string>("");
 
   const cookies = useCookies();
+
+  useEffect(() => {
+    const token = cookies.get("token");
+    if (token) {
+      router.push("/");
+    }
+  }, []);
 
   const handleSubmit = async (event: any) => {
     event.preventDefault();

@@ -1,11 +1,6 @@
-body{
-    background-color:#EEEEEE;
+body {
+  background-color: white;
 }
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-
-
-
-
-
