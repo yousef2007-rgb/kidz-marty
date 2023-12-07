@@ -41,16 +41,19 @@ export interface ItemWithQuantity extends Item{
     quantity: number;
 }
 
-
-export interface User {
+export interface UserWithoutId {
     username: string;
     email: string;
     password: string;
     phone?: string;
     city: "Amman" | "Zarqa" | "Irbid" | "Jerash" | "Aqaba" | "Ajloun" | "Alsalt" | "Almafraq" | "Altafila" | "Alkarek" | "Maan" | "Madaba" | "Alagwar";
     location: string;
-    age?: number;
-    isAdmin: boolean;
+    age: number;
+    isAdmin?: boolean;
+    repeat_password?:string;
+}
+
+export interface User extends UserWithoutId {
     _id: string;
 }
 export interface Order {

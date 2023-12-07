@@ -13,12 +13,15 @@ const config: Config = {
                 'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
                 'gradient-conic':
                     'conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))',
+                'hero':
+                    'url("/images/gradient.jpg")',
             },
             colors:{
                 primary:"#545454",
                 secondary:"#eeeeee",
                 'primary-color': "#48BED4",
-                'secondary-color':"#EC1C4E"
+                'secondary-color':"#EC1C4E",
+                purple:"#943fd7"
             },
         },
     },
