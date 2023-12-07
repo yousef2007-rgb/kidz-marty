@@ -20,7 +20,7 @@ export default function navigation({
         style={{
           transform: `translateX(${isVisible ? 0 : -1000}px)`,
         }}
-        className="flex ease-in-out fixed top-0 transition-all left-0 mx-2 h-full w-full sm:hidden  bg-secondary z-50 flex-col  text-gray-900 font-bold text-center text-lg"
+        className="flex ease-in-out fixed top-0 transition-all left-0 mx-2 h-full w-full sm:hidden  bg-white z-50 flex-col  text-gray-900 font-bold text-center text-lg"
       >
         <button
           onClick={() => setIsVisible(false)}
