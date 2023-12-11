@@ -36,7 +36,8 @@ const page = (props: {}) => {
       const token = await axios.post(`${process.env.URL}/api/users`, {
         ...formData,
       });
-      cookies.set("token", token.headers["x-web-token"]);
+      console.log(token);
+      cookies.set("token", token.data);
       router.push("/cart");
     } catch (err: any) {
       if (err.response.status == 400) {
@@ -66,7 +67,7 @@ const page = (props: {}) => {
             value={formData.username}
             name="username"
             onChange={handleFieldChange}
-            className="w-full p-2 border rounded-md focus:border-purple"
+            className="w-full p-2 border rounded-md focus:border-orange"
             required
           />
         </div>
@@ -78,7 +79,7 @@ const page = (props: {}) => {
             value={formData.email}
             name="email"
             onChange={handleFieldChange}
-            className="w-full p-2 border rounded-md focus:border-purple"
+            className="w-full p-2 border rounded-md focus:border-orange"
             required
           />
         </div>
@@ -90,7 +91,7 @@ const page = (props: {}) => {
             value={formData.password}
             name="password"
             onChange={handleFieldChange}
-            className="w-full p-2 border rounded-md focus:border-purple"
+            className="w-full p-2 border rounded-md focus:border-orange"
             required
           />
         </div>
@@ -102,7 +103,7 @@ const page = (props: {}) => {
             value={formData.repeat_password}
             name="repeat_password"
             onChange={handleFieldChange}
-            className="w-full p-2 border rounded-md focus:border-purple"
+            className="w-full p-2 border rounded-md focus:border-orange"
             required
           />
         </div>
@@ -115,7 +116,7 @@ const page = (props: {}) => {
             value={formData.phone}
             name="phone"
             onChange={handleFieldChange}
-            className="w-full p-2 border rounded-md focus:border-purple"
+            className="w-full p-2 border rounded-md focus:border-orange"
             pattern="[0-9]{9}"
             required
           />
@@ -128,7 +129,7 @@ const page = (props: {}) => {
             name="city"
             value={formData.city}
             onChange={handleFieldChange}
-            className="w-full p-2 border rounded-md focus:border-purple"
+            className="w-full p-2 border rounded-md focus:border-orange"
           >
             <option value="Amman">Amman</option>
             <option value="Zarqa">Zarqa</option>
@@ -143,7 +144,7 @@ const page = (props: {}) => {
             value={formData.location}
             name="location"
             onChange={handleFieldChange}
-            className="w-full p-2 border rounded-md focus:border-purple"
+            className="w-full p-2 border rounded-md focus:border-orange"
             required
           />
         </div>
@@ -155,14 +156,14 @@ const page = (props: {}) => {
             value={formData.age}
             name="age"
             onChange={handleFieldChange}
-            className="w-full p-2 border rounded-md focus:border-purple"
+            className="w-full p-2 border rounded-md focus:border-orange"
             required
           />
         </div>
         <div className="mt-4">
           <button
             type="submit"
-            className="bg-purple text-white font-bold p-2 rounded-md w-full hover:bg-white border-2 border-purple hover:text-purple transition-all"
+            className="bg-orange text-white font-bold p-2 rounded-md w-full hover:bg-white border-2 border-orange hover:text-orange transition-all"
           >
             Sign Up
           </button>
@@ -176,7 +177,7 @@ const page = (props: {}) => {
         )}
         <span className="capitalize mt-5">
           already have an account?{" "}
-          <Link className="text-blue-400 hover:underline" href={"/singin"}>
+          <Link className="text-blue-400 hover:underline" href={"/signin"}>
             sign in
           </Link>
         </span>

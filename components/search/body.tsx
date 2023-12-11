@@ -62,11 +62,11 @@ export const body: FC<Props> = ({ products, setVisability }) => {
   };
   return (
     <div className="fixed top-0 left-0 z-50 w-screen min-h-screen bg-black bg-opacity-30 backdrop-blur-sm">
-      <div className="py-7 flex items-center justify-center px-3 bg-secondary-color">
+      <div className="py-7 flex items-center justify-center px-3 bg-primary">
         <div className="ml-auto max-w-lg flex-1 relative mr-2">
-          <div className="flex bg-secondary w-full p-2 rounded-md">
+          <div className="flex bg-gray-color w-full p-2 rounded-md">
             <input
-              className="flex-1 w-full outline-none bg-secondary"
+              className="flex-1 w-full outline-none bg-gray-color"
               type="text"
               autoFocus={true}
               placeholder="search"
@@ -80,7 +80,7 @@ export const body: FC<Props> = ({ products, setVisability }) => {
           </div>
           <div
             ref={searchResult}
-            className="bg-secondary rounded-md max-h-[70vh] overflow-auto absolute w-full mt-2 flex flex-col top-full"
+            className="bg-gray-color rounded-md max-h-[70vh] overflow-auto absolute w-full mt-2 flex flex-col top-full"
           >
             {products
               .filter(searchFilter)
@@ -95,7 +95,7 @@ export const body: FC<Props> = ({ products, setVisability }) => {
                     <SearchIcon />
                   </div>
                   <span className="flex-1">{product.title}</span>
-                  {/* <span className='text-primary-color'>{product.lable}</span> */}
+                  {/* <span className='text-secondary'>{product.lable}</span> */}
                   <img
                     className="max-w-[100px] ml-2 rounded-md"
                     src={`${process.env.URL}/${product.imageUrl}`}

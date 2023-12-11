@@ -43,7 +43,7 @@ export default function Footer({}) {
               <li>
                 <a
                   href="https://www.instagram.com/intexjo/"
-                  className="flex items-center font-normal text-secondary-color hover:underline "
+                  className="flex items-center font-normal text-primary hover:underline "
                 >
                   <svg
                     className="h-5 w-5"

@@ -1,6 +1,6 @@
 "use client";
 import { useSearchParams } from "next/navigation";
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import Head from "next/head";
 import Link from "next/link";
 import { useAppContext } from "@/app/AppContext";
@@ -11,10 +11,23 @@ export default function page() {
   const context = useAppContext();
   const dataString = params.get("data");
   const data = dataString ? JSON.parse(dataString) : null;
-  console.log(data);
+  const [total, setTotal] = useState<number>(0);
+
+  useEffect(() => {
+    calculateTotal();
+  }, [data]);
+
   useEffect(() => {
     context.setLocalStorage({ ...context.state, cart: [] });
   }, []);
+
+  const calculateTotal = () => {
+    let sum = 0;
+    for (let i = 0; i < data.products.length; i++) {
+      sum = sum + data.products[i].price * data.products[i].quantity;
+    }
+    setTotal(sum);
+  };
   return (
     <>
       <Head>
@@ -48,6 +61,11 @@ export default function page() {
                 </div>
               ))
             : ""}
+        </div>
+        <div className="mt-5">
+          <p className="capitalize font-bold text-lg">
+            total without dilivery: {total}JOD
+          </p>
         </div>
         <p className="text-center mt-8">
           Your order is being processed and will be shipped shortly. You will

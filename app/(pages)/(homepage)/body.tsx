@@ -34,7 +34,7 @@ export const body = async (props: {}) => {
               </div>
               <Link
                 href={`/category/${productGroup.category._id}`}
-                className="capitalize hover:scale-[0.98] transition-all px-8 py-2 rounded-md w-fit text-white font-semibold mx-auto my-10 bg-secondary-color border-2 border-secondary-color hover:text-secondary-color hover:bg-white ease-in-out"
+                className="capitalize hover:scale-[0.98] transition-all px-8 py-2 rounded-md w-fit text-white font-semibold mx-auto my-10 bg-primary border-2 border-primary hover:text-primary hover:bg-white ease-in-out"
               >
                 view all
               </Link>

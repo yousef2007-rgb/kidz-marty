@@ -2,7 +2,7 @@ import axios from "axios";
 import Link from "next/link";
 import React from "react";
 import { Product, Varient } from "@/types/productsTypes";
-import { quantity as Quantity } from "./quantity";
+import { operations as Operations } from "./operations";
 import { imageSlider as ImageSlider } from "./imageSlider";
 import { addToCart as AddToCart } from "./addToCart";
 
@@ -37,7 +37,7 @@ const page = async ({
           className="font-bold flex capitalize my-4"
         >
           <span>Brand:</span>{" "}
-          <span className="text-secondary-color hover:underline ml-2">
+          <span className="text-primary hover:underline ml-2">
             {productData.brand.title}
           </span>
         </Link>
@@ -46,7 +46,7 @@ const page = async ({
           className="font-bold flex capitalize my-4"
         >
           <span>Category:</span>{" "}
-          <span className="text-secondary-color hover:underline ml-2">
+          <span className="text-primary hover:underline ml-2">
             {productData.category.title}
           </span>
         </Link>
@@ -55,7 +55,7 @@ const page = async ({
           className="font-bold capitalize flex my-4"
         >
           <span>age range:</span>{" "}
-          <span className="text-secondary-color hover:underline ml-2">
+          <span className="text-primary hover:underline ml-2">
             {productData.ageRange}
           </span>
         </Link>
@@ -91,19 +91,8 @@ const page = async ({
         ) : (
           ""
         )}
-        {productData.dimensions && productData.dimensions.length != 0 ? (
-          <div className="flex flex-col my-4">
-            <span className="capitalize font-bold mr-2">dimensions:</span>
-            <select className="font-bold outline-none flex-1 mt-2 text-center bg-gray-100 rounded-md px-3 py-2">
-              {productData.dimensions.map((dimension, index) => (
-                <option key={index}>{dimension}</option>
-              ))}
-            </select>
-          </div>
-        ) : (
-          ""
-        )}
-        <Quantity
+
+        <Operations
           item={{
             title: varient ? varient.title : productData.title,
             imageUrl: varient ? varient.imageUrl : productData.imageUrl,
@@ -114,6 +103,7 @@ const page = async ({
                 : productData.online_price -
                   (productData.online_price * productData.discount) / 100,
           }}
+          dimensions={productData.dimensions}
         />
         {productData.varients && productData.varients.length != 0 ? (
           <>

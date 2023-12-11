@@ -2,7 +2,7 @@ import React from "react";
 
 const Loading = () => {
   return (
-    <div className="min-h-screen animate-pulse flex items-center justify-center">
+    <div className="min-h-[70vh] animate-pulse flex items-center justify-center">
       <div className="text-center">
         {/* Product Rows (Placeholder) */}
         <div className="h-6 my-8 max-w-[300px] mx-auto bg-gray-300"></div>

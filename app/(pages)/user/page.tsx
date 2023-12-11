@@ -1,3 +1,4 @@
+export const dynamic = "force-dynamic";
 import axios from "axios";
 import React from "react";
 import { getCookies } from "next-client-cookies/server";

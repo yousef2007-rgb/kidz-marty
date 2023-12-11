@@ -10,9 +10,10 @@ export default function logout() {
     <button
       onClick={() => {
         cookies.remove("token");
+        router.refresh();
         router.push("/");
       }}
-      className="bg-purple text-white font-bold p-2 rounded-md w-full hover:bg-white border-2 border-purple hover:text-purple transition-all"
+      className="bg-orange text-white font-bold p-2 rounded-md w-full hover:bg-white border-2 border-orange hover:text-orange transition-all"
     >
       LogOut
     </button>

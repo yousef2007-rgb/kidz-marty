@@ -14,14 +14,15 @@ const config: Config = {
                 'gradient-conic':
                     'conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))',
                 'hero':
-                    'url("/images/gradient.jpg")',
+                    'url("/images/signin.jpeg")',
             },
             colors:{
-                primary:"#545454",
-                secondary:"#eeeeee",
-                'primary-color': "#48BED4",
-                'secondary-color':"#EC1C4E",
-                purple:"#943fd7"
+                accent:"545454",
+                'gray-color':"#eeeeee",
+                'secondary': "#48BED4",
+                'primary':"#EC1C4E",
+                purple:"#943fd7",
+                orange:"#fa4340"
             },
         },
     },
