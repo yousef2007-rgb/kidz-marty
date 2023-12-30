@@ -22,7 +22,7 @@ const header = async () => {
     });
   }
   return (
-    <header className="py-5 font-medium px-3 flex items-center justify-between">
+    <header className="py-3 h-28 font-medium px-2 flex fixed top-0 left-0 z-50 bg-white w-screen items-center justify-between">
       <div className="sm:hidden flex">
         <MobileNavigation links={links} />
         <CartButton />

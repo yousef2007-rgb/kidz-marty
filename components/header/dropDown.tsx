@@ -17,15 +17,15 @@ export const dropDown: FC<Props> = ({ title, links, setNavVisability }) => {
   };
   return (
     <div
-      className="flex z-10 hover:-translate-y-1 transition-all p-2 rounded-t-md  hover:bg-gray-100"
+      className="flex z-10 hover:-translate-y-1 transition-all p-2 sm:rounded-b-none rounded-b-md rounded-t-md hover:bg-gray-100"
       onMouseOver={handleMouseOver}
       onMouseOut={handleMouseOut}
     >
-      <button className="hover:underline decoration-2 text-center w-full">
+      <button className="hover:underline decoration-2 text-left w-full">
         {title}
       </button>
       <div
-        className="flex absolute top-full  text-center w-[300px] p-2 rounded-md left-1/2 -translate-x-1/2 flex-col bg-gray-100"
+        className="flex absolute top-full  text-left sm:text-center w-[90%] sm:w-[300px] p-2 rounded-b-md  sm:rounded-t-md left-1/2 -translate-x-1/2 flex-col bg-gray-100"
         style={{ display: dropDownVisability == true ? "flex" : "none" }}
         onClick={() => {
           if (setNavVisability) {
