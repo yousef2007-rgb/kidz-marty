@@ -12,7 +12,7 @@ export const imageSlider: FC<Props> = ({ productData, varient }) => {
     const [currentImage, setCurrentImage] = useState<string>
         (varient ? varient?.imageUrl : productData.imageUrl);
     return (
-        <div className='sm:w-1/2 w-full flex flex-col sm:mx-2 sm:sticky top-3 h-fit'>
+        <div className='sm:w-1/2 w-full flex flex-col sm:mx-2 sm:sticky top-28 h-fit'>
             <div className='flex items-center h-[300px] justify-center bg-white'>
                 <img className='rounded-md max-h-full' loading='lazy' src={`${process.env.URL}/${currentImage}`} alt={varient ? varient.title : productData.title} />
             </div>

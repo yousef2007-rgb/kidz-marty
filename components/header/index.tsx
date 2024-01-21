@@ -22,13 +22,19 @@ const header = async () => {
     });
   }
   return (
-    <header className="py-3 h-28 font-medium px-2 flex fixed top-0 left-0 z-50 bg-white w-screen items-center justify-between">
+    <header className="py-3 h-28 font-medium px-2 flex max-w-[1200px] mx-auto fixed top-0 left-0 right-0 z-50 bg-white w-screen items-center justify-between">
       <div className="sm:hidden flex">
         <MobileNavigation links={links} />
         <CartButton />
       </div>
+      {/*
       <Link href={"/"} className="min-h-[80px] mx-auto sm:mx-0 ">
         <img src="/images/logo.png" alt="kidzmarty logo" />
+      </Link>
+      */}
+
+      <Link href={"/"} className="font-bold">
+        Logo
       </Link>
 
       <Navigation links={links} />
