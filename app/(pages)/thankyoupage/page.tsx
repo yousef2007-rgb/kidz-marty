@@ -33,16 +33,16 @@ export default function page() {
       <Head>
         <title>Thank You for Your Purchase!</title>
       </Head>
-      <div className="container mx-auto px-4 py-16">
-        <h1 className="text-3xl font-bold text-center">
+      <div className="container mx-auto px-4">
+        <h1 className="text-3xl font-bold text-center my-2">
           Thank you for your purchase!
         </h1>
-        <div className="grid grid-cols-1 my-10 md:grid-cols-2 gap-4">
+        <div className="flex justify-between flex-wrap gap-4">
           {data
             ? data.products.map((product: ItemWithQuantity, index: number) => (
                 <div
                   key={index}
-                  className="p-4 flex flex-col rounded-lg shadow-lg"
+                  className="p-4 flex-1 my-5 min-w-[250px] flex flex-col bg-white rounded-lg shadow-lg"
                 >
                   <img
                     src={`${process.env.URL}/${product.imageUrl}`}

@@ -23,7 +23,7 @@ const page = (props: {}) => {
   const cookies = useCookies();
 
   useEffect(() => {
-    const token = cookies.get("token");
+    const token = cookies.get("verification-token-kidz-marty");
     if (token) {
       router.push("/");
     }
@@ -37,7 +37,7 @@ const page = (props: {}) => {
         ...formData,
       });
       console.log(token);
-      cookies.set("token", token.data);
+      cookies.set("verification-token-kidz-marty", token.data);
       router.push("/cart");
     } catch (err: any) {
       if (err.response.status == 400) {

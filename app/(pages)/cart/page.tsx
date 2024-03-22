@@ -53,7 +53,7 @@ const page = (props: {}) => {
   };
 
   const handleCheckout = async () => {
-    const token = cookies.get("token");
+    const token = cookies.get("verification-token-kidz-marty");
     if (token) {
       try {
         const response = await axios.post(

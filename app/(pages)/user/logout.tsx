@@ -9,7 +9,7 @@ export default function logout() {
   return (
     <button
       onClick={() => {
-        cookies.remove("token");
+        cookies.remove("verification-token-kidz-marty");
         router.refresh();
         router.push("/");
       }}

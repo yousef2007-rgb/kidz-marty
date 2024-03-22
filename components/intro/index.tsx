@@ -16,7 +16,7 @@ export const intro = () => {
     return () => clearInterval(interval); // Clear the interval on component cleanup
   }, []);
   return (
-    <div className="px-5">
+    <div className="px-2">
       <div className="relative w-full mx-auto  h-[50vh] transition-all overflow-hidden rounded-xl">
         <div
           className="flex transition-transform h-full rounded-xl duration-300 ease-in-out transform"

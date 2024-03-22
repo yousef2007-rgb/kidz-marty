@@ -18,7 +18,7 @@ const getUserData = async (token: string) => {
 
 async function UserPage() {
   const cookies = getCookies();
-  const token = cookies.get("token");
+  const token = cookies.get("verification-token-kidz-marty");
   let data;
   if (token) {
     data = await getUserData(token);

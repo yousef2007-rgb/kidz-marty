@@ -14,7 +14,7 @@ const getProducts = async () => {
 export const body = async (props: {}) => {
   const products = await getProducts();
   return (
-    <div className="px-3">
+    <div className="px-2">
       <div>
         {products.map(
           (
@@ -25,7 +25,7 @@ export const body = async (props: {}) => {
               <h1 className="text-3xl font-bold text-gray-800 mx-auto w-fit my-10 text-center">
                 {productGroup.category.title}
               </h1>
-              <div className="flex justify-evenly flex-wrap">
+              <div className="flex justify-evenly sm:justify-between flex-wrap">
                 {productGroup.products.map(
                   (product: Product, index: number) => (
                     <ProductCard index={index} product={product} />
