@@ -18,6 +18,9 @@ const page = (props: {}) => {
     repeat_password: "",
     age: 18,
   });
+  const [code, setCode] = useState<number>(0);
+  const [isOpen, setIsOpen] = useState<boolean>(false);
+  const [id, setId] = useState<string>();
   const [error, setError] = useState<string>("");
 
   const cookies = useCookies();
@@ -31,17 +34,44 @@ const page = (props: {}) => {
 
   const handleSubmit = async (event: any) => {
     event.preventDefault();
+    try {
+      const codeData = await axios.post(
+        `${process.env.URL}/api/users/generateCode`,
+        {
+          ...formData,
+        }
+      );
+      console.log(codeData);
+
+      setId(codeData.data);
+      setIsOpen(true);
+    } catch (err: any) {
+      if (err.response.status == 400) {
+        setError(err.response.data);
+      } else {
+        alert("something went wrong try again");
+      }
+    }
+  };
+
+  const handleCodeSubmit = async (event: any) => {
+    event.preventDefault();
+    const formDataWithCodeData = { ...formData, code: code, id: id };
 
     try {
       const token = await axios.post(`${process.env.URL}/api/users`, {
-        ...formData,
+        ...formDataWithCodeData,
       });
       console.log(token);
       cookies.set("verification-token-kidz-marty", token.data);
       router.push("/cart");
     } catch (err: any) {
+      console.log(err);
+
       if (err.response.status == 400) {
         setError(err.response.data);
+
+        setIsOpen(false);
       } else {
         alert("something went wrong try again");
       }
@@ -182,6 +212,52 @@ const page = (props: {}) => {
           </Link>
         </span>
       </form>
+
+      {isOpen ? (
+        <div className="bg-gray-500 bg-opacity-50 fixed h-screen w-screen flex items-center justify-center">
+          <form
+            onSubmit={handleCodeSubmit}
+            className="bg-white rounded-lg shadow-md mx-auto max-w-sm p-4"
+          >
+            <h1 className="text-xl font-bold mb-4">Verify Your Email</h1>
+            <p>
+              A verification code has been sent to your email address. Please
+              enter the code below to continue.
+            </p>
+            <div className="mb-4">
+              <label htmlFor="code" className="block text-sm font-medium mb-2">
+                Verification Code
+              </label>
+              <input
+                type="number"
+                min={100000}
+                max={999999}
+                required
+                id="code"
+                className="w-full px-3 py-2 rounded-md border border-gray-300 focus:outline-none focus:ring-1 focus:ring-blue-500"
+                onChange={(e) => setCode(parseInt(e.target.value))}
+              />
+            </div>
+            <div className="flex flex-col justify-end">
+              <button
+                type="submit"
+                className="bg-orange text-white font-bold p-2 rounded-md w-full hover:bg-white border-2 border-orange hover:text-orange transition-all"
+              >
+                Send
+              </button>
+              <button
+                type="button"
+                onClick={() => setIsOpen(false)}
+                className="px-4 py-2 rounded-md my-2 text-gray-500 hover:bg-gray-100 focus:outline-none"
+              >
+                Close
+              </button>
+            </div>
+          </form>
+        </div>
+      ) : (
+        ""
+      )}
     </div>
   );
 };
