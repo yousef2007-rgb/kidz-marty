@@ -31,6 +31,8 @@ const page = (props: {}) => {
   const handleSubmit = async (event: any) => {
     event.preventDefault();
     setIsLoading(true);
+    setError("");
+
     try {
       const token = await axios.post(`${process.env.URL}/api/auth`, {
         email: email,

@@ -34,6 +34,7 @@ const page = (props: {}) => {
 
   const handleSubmit = async (event: any) => {
     event.preventDefault();
+    setError("");
     try {
       const codeData = await axios.post(
         `${process.env.URL}/api/users/generateCode`,
@@ -56,6 +57,7 @@ const page = (props: {}) => {
 
   const handleCodeSubmit = async (event: any) => {
     event.preventDefault();
+    setError("");
     const formDataWithCodeData = { ...formData, code: code, id: id };
 
     try {
